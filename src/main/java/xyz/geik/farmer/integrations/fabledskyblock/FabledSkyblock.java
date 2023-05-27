@@ -1,6 +1,6 @@
 package xyz.geik.farmer.integrations.fabledskyblock;
 
-import com.songoda.skyblock.api.SkyBlockAPI;
+import com.songoda.skyblock.SkyBlock;
 import org.bukkit.Location;
 import xyz.geik.farmer.integrations.Integrations;
 import java.util.UUID;
@@ -22,7 +22,7 @@ public class FabledSkyblock extends Integrations {
      */
     @Override
     public UUID getOwnerUUID(String regionID) {
-        return SkyBlockAPI.getIslandManager().getIslandByUUID(UUID.fromString(regionID)).getOwnerUUID();
+        return SkyBlock.getInstance().getIslandManager().getIslandByUUID(UUID.fromString(regionID)).getOwnerUUID();
     }
 
     /**
@@ -32,7 +32,7 @@ public class FabledSkyblock extends Integrations {
      */
     @Override
     public UUID getOwnerUUID(Location location) {
-        return SkyBlockAPI.getIslandManager().getIslandAtLocation(location).getOwnerUUID();
+        return SkyBlock.getInstance().getIslandManager().getIslandAtLocation(location).getOwnerUUID();
     }
 
     /**
@@ -42,6 +42,6 @@ public class FabledSkyblock extends Integrations {
      */
     @Override
     public String getRegionID(Location location) {
-        return SkyBlockAPI.getIslandManager().getIslandAtLocation(location).getIslandUUID().toString();
+        return SkyBlock.getInstance().getIslandManager().getIslandAtLocation(location).getIslandUUID().toString();
     }
 }
